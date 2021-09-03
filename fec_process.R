@@ -80,4 +80,28 @@ ggplot(years,
 
 dev.off()
 
+# regressions
+fec_reg <- subset(fec, fec$CAND_PTY_AFFILIATION=="REP" |
+                    fec$CAND_PTY_AFFILIATION=="DEM")
+
+
+fec_reg$battle <- ifelse(fec_reg$CAND_OFFICE_ST=="GA"|
+                       fec_reg$CAND_OFFICE_ST=="FL"|
+                       fec_reg$CAND_OFFICE_ST=="PA"|
+                       fec_reg$CAND_OFFICE_ST=="MI"|
+                       fec_reg$CAND_OFFICE_ST=="WI"|
+                       fec_reg$CAND_OFFICE_ST=="AZ", 1, 0)
+                       
+
+reg1 <- lm(raised ~ CAND_PTY_AFFILIATION + year, data=fec_reg)
+reg2 <- lm(raised ~ CAND_PTY_AFFILIATION + year, data=fec_reg)
+reg3 <- lm(raised ~ CAND_PTY_AFFILIATION + year + battle, data=fec_reg)
+
+sink("fec_reg.txt")
+print(summary(reg3))
+sink()
+
+
+
+
 print("The FEC data was processed successfully.")
