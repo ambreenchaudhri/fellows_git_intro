@@ -93,7 +93,7 @@ fec_reg$battle <- ifelse(fec_reg$CAND_OFFICE_ST=="GA"|
                        fec_reg$CAND_OFFICE_ST=="AZ", 1, 0)
                        
 
-reg1 <- lm(raised ~ CAND_PTY_AFFILIATION + year, data=fec_reg)
+reg1 <- lm(raised ~ CAND_PTY_AFFILIATION, data=fec_reg)
 reg2 <- lm(raised ~ CAND_PTY_AFFILIATION + year, data=fec_reg)
 reg3 <- lm(raised ~ CAND_PTY_AFFILIATION + year + battle, data=fec_reg)
 
