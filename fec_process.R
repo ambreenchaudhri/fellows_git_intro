@@ -98,7 +98,7 @@ reg2 <- lm(raised ~ CAND_PTY_AFFILIATION + year, data=fec_reg)
 reg3 <- lm(raised ~ CAND_PTY_AFFILIATION + year + battle, data=fec_reg)
 
 sink("fec_reg.txt")
-print(summary(reg3))
+print(summary(reg2))
 sink()
 
 
