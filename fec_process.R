@@ -15,7 +15,7 @@ library(fs)
 
 
 # Set Working Directory
-setwd("~/2_automation/FEC/")
+setwd("~/fellows_git_intro/practice/")
 
 ########################
 # Make Changes Universal
@@ -54,7 +54,7 @@ class(fec$CVG_END_DT)
 fec$year <- str_sub(fec$CVG_END_DT, start=-4)
 
 # Save Results
-write.csv(fec, file="~/2_automation/FEC/fec_final.csv", row.names=FALSE)
+write.csv(fec, file="~/fellows_git_intro/practice/fec_final.csv", row.names=FALSE)
 
 # create a pdf file
 pdf("fec.pdf")
